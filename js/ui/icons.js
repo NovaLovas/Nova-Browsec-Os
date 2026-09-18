@@ -1,0 +1,115 @@
+/* icons.js — inline SVG-иконки (24×24, stroke=currentColor). Без CDN. */
+
+const P = {
+  // файлы и объекты
+  folder:'<path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>',
+  folderPlus:'<path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M12 11v6M9 14h6"/>',
+  file:'<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/>',
+  filePlus:'<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M12 12v5M9.5 14.5h5"/>',
+  fileText:'<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M8.5 13h7M8.5 17h4"/>',
+  image:'<rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/>',
+  code:'<path d="m9 18-6-6 6-6"/><path d="m15 6 6 6-6 6"/>',
+  box:'<path d="M21 8 12 3 3 8v8l9 5 9-5z"/><path d="m3 8 9 5 9-5M12 13v8"/>',
+  // приложения
+  terminal:'<rect x="2.5" y="4" width="19" height="16" rx="2"/><path d="M6.5 10.5l2.5 2-2.5 2M12 14.5h5"/>',
+  edit:'<path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4z"/>',
+  notes:'<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/>',
+  calculator:'<rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15h.01M8 19h8"/>',
+  sliders:'<path d="M4 6h16M4 12h16M4 18h16"/><circle cx="9" cy="6" r="2"/><circle cx="15" cy="12" r="2"/><circle cx="9" cy="18" r="2"/>',
+  activity:'<path d="M22 12h-4l-3 9L9 3l-3 9H2"/>',
+  globe:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 3 2.5 15 0 18M12 3c-2.5 3-2.5 15 0 18"/>',
+  palette:'<circle cx="12" cy="12" r="9"/><circle cx="9" cy="9" r="1.3"/><circle cx="15" cy="9" r="1.3"/><circle cx="9.5" cy="15" r="1.3"/><circle cx="15" cy="14.5" r="1.3"/>',
+  camera:'<path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h3l2-3h6l2 3h3a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="3.6"/>',
+  music:'<path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/>',
+  clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/>',
+  store:'<path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/>',
+  // интерфейс
+  grid:'<rect x="3" y="3" width="7.5" height="7.5" rx="1.6"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.6"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.6"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.6"/>',
+  search:'<circle cx="11" cy="11" r="7"/><path d="M20 20l-4.3-4.3"/>',
+  bell:'<path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/>',
+  bellOff:'<path d="M18 8a6 6 0 0 0-9.3-5M4.6 8.6C4.5 15 3 17 3 17h14M2 2l20 20"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/>',
+  volume:'<path d="M11 5 6 9H2v6h4l5 4z"/><path d="M19.1 4.9a10 10 0 0 1 0 14.2M15.5 8.5a5 5 0 0 1 0 7"/>',
+  volumeOff:'<path d="M11 5 6 9H2v6h4l5 4z"/><path d="M22 9l-6 6M16 9l6 6"/>',
+  wifi:'<path d="M5 12.5a10 10 0 0 1 14 0"/><path d="M8.5 16a5.5 5.5 0 0 1 7 0"/><path d="M12 20h.01"/>',
+  wifiOff:'<path d="M2 2l20 20"/><path d="M8.5 16a5.5 5.5 0 0 1 7 0"/><path d="M12 20h.01"/><path d="M5 12.5a10 10 0 0 1 5-2.4"/>',
+  x:'<path d="M18 6 6 18M6 6l12 12"/>',
+  minus:'<path d="M5 12h14"/>',
+  square:'<rect x="5" y="5" width="14" height="14" rx="2"/>',
+  restore:'<rect x="3" y="8" width="13" height="13" rx="2"/><path d="M8 8V5a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-3"/>',
+  plus:'<path d="M12 5v14M5 12h14"/>',
+  check:'<path d="m4 12 5 5L20 6"/>',
+  trash:'<path d="M3 6h18"/><path d="M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/>',
+  refresh:'<path d="M21 12a9 9 0 1 1-2.6-6.4"/><path d="M21 3v6h-6"/>',
+  home:'<path d="M3 10 12 3l9 7v10a1 1 0 0 1-1 1h-5v-7H10v7H4a1 1 0 0 1-1-1z"/>',
+  star:'<path d="m12 3 2.8 5.9 6.2.8-4.5 4.4 1.1 6.4-5.6-3.1-5.6 3.1 1.1-6.4L3 9.7l6.2-.8z"/>',
+  download:'<path d="M12 3v13"/><path d="m7 12 5 5 5-5"/><path d="M4 20h16"/>',
+  external:'<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/>',
+  power:'<path d="M18.4 6.6a9 9 0 1 1-12.8 0"/><path d="M12 2v9"/>',
+  lock:'<rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/>',
+  user:'<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',
+  users:'<circle cx="9" cy="8" r="3.5"/><path d="M2 21a7 7 0 0 1 14 0"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M17.5 21a7 7 0 0 0-2-4.9"/>',
+  info:'<circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.7h.01"/>',
+  alert:'<path d="M12 3 2 20h20z"/><path d="M12 9v5M12 17h.01"/>',
+  shield:'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',
+  eye:'<path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/>',
+  list:'<path d="M8 6h13M8 12h13M8 18h13M3.5 6h.01M3.5 12h.01M3.5 18h.01"/>',
+  copy:'<rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/>',
+  save:'<path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><path d="M17 21v-8H7v8M7 3v5h8"/>',
+  eraser:'<path d="m5.5 15.5 6-6 8 8-3 3H8.5z"/><path d="M13 21h8"/>',
+  stopCircle:'<circle cx="12" cy="12" r="9"/><rect x="9" y="9" width="6" height="6" rx="1"/>',
+  cpu:'<rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9.5 2v3M14.5 2v3M9.5 19v3M14.5 19v3M2 9.5h3M2 14.5h3M19 9.5h3M19 14.5h3"/>',
+  database:'<ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/>',
+  window:'<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/>',
+  history:'<path d="M3 3v6h6"/><path d="M3.5 9a9 9 0 1 1 .6 6.5"/><path d="M12 8v5l4 2"/>',
+  bookmark:'<path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"/>',
+  sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
+  moon:'<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>',
+  chevronLeft:'<path d="m15 6-6 6 6 6"/>',
+  chevronRight:'<path d="m9 6 6 6-6 6"/>',
+  chevronDown:'<path d="m6 9 6 6 6-6"/>',
+  chevronUp:'<path d="m6 15 6-6 6 6"/>',
+  play:'<path d="M7.5 4.5v15l12-7.5z" fill="currentColor" stroke="none"/>',
+  pause:'<path d="M8 4.5h3.2v15H8zM12.8 4.5H16v15h-3.2z" fill="currentColor" stroke="none"/>',
+  next:'<path d="M6.5 4.5v15L17 12z" fill="currentColor" stroke="none"/><path d="M19 4.5v15" stroke-width="2.4"/>',
+  prev:'<path d="M17.5 4.5v15L7 12z" fill="currentColor" stroke="none"/><path d="M5 4.5v15" stroke-width="2.4"/>',
+  zap:'<path d="M13 2 3.5 14H10l-1 8 9.5-12H12z"/>',
+  cloud:'<path d="M17.5 19.5a4.5 4.5 0 1 0-1.6-8.7A6 6 0 0 0 4.6 12.4A3.6 3.6 0 0 0 5.5 19.5z"/>',
+  cloudRain:'<path d="M17.5 16.5a4.5 4.5 0 1 0-1.6-8.7A6 6 0 0 0 4.6 9.4A3.6 3.6 0 0 0 5.5 16.5z"/><path d="M8 19.5l-1 2M12 19.5l-1 2M16 19.5l-1 2"/>',
+  cloudSnow:'<path d="M17.5 16.5a4.5 4.5 0 1 0-1.6-8.7A6 6 0 0 0 4.6 9.4A3.6 3.6 0 0 0 5.5 16.5z"/><path d="M8 20h.01M12 21h.01M16 20h.01"/>',
+  cloudLightning:'<path d="M17.5 15.5a4.5 4.5 0 1 0-1.6-8.7A6 6 0 0 0 4.6 8.4A3.6 3.6 0 0 0 5.5 15.5z"/><path d="m13 13-3 5h4l-1 4 4-6h-3z"/>',
+  fog:'<path d="M4 9h16M6 13h12M4 17h16M8 21h8"/>',
+  wind:'<path d="M3 8h11a3 3 0 1 0-3-3M3 16h13a3 3 0 1 1-3 3M3 12h18"/>',
+  droplets:'<path d="M12 3s5 5.5 5 9a5 5 0 0 1-10 0c0-3.5 5-9 5-9z"/>',
+  thermometer:'<path d="M14 14.8V5a2 2 0 0 0-4 0v9.8a4 4 0 1 0 4 0z"/>',
+  gauge:'<path d="M4 18a9 9 0 1 1 16 0"/><path d="m12 14 4-4"/><circle cx="12" cy="15" r="1.6"/>',
+  link:'<path d="M9.5 13.5a4 4 0 0 0 6 .5l2-2a4.2 4.2 0 0 0-6-6l-1 1"/><path d="M14.5 10.5a4 4 0 0 0-6-.5l-2 2a4.2 4.2 0 0 0 6 6l1-1"/>',
+  send:'<path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4z"/>',
+  filter:'<path d="M3 5h18l-7 8v6l-4 2v-8z"/>',
+  keyboard:'<rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M7 14h10"/>',
+  monitor:'<rect x="2" y="3.5" width="20" height="14" rx="2"/><path d="M8 21h8M12 17.5V21"/>',
+  type:'<path d="M4 6.5V4h16v2.5M12 4v16M8.5 20h7"/>',
+  circle:'<circle cx="12" cy="12" r="8"/>',
+  line:'<path d="M4 20 20 4"/>',
+  moreV:'<circle cx="12" cy="5" r="1.4"/><circle cx="12" cy="12" r="1.4"/><circle cx="12" cy="19" r="1.4"/>',
+  undo:'<path d="M3 8h11a5 5 0 0 1 0 10H8"/><path d="M7 4 3 8l4 4"/>',
+  redo:'<path d="M21 8H10a5 5 0 0 0 0 10h6"/><path d="m17 4 4 4-4 4"/>',
+  maximize:'<path d="M4 9V5a1 1 0 0 1 1-1h4M20 15v4a1 1 0 0 1-1 1h-4M15 4h4a1 1 0 0 1 1 1v4M9 20H5a1 1 0 0 1-1-1v-4"/>',
+  arrowUp:'<path d="M12 20V4M6 10l6-6 6 6"/>',
+  puzzle:'<path d="M9 4a2 2 0 1 1 4 0v1h3a1 1 0 0 1 1 1v3h1a2 2 0 1 1 0 4h-1v4a1 1 0 0 1-1 1h-4v-1a2 2 0 1 0-4 0v1H5a1 1 0 0 1-1-1v-4h1a2 2 0 1 0 0-4H4V6a1 1 0 0 1 1-1h4z"/>',
+  plug:'<path d="M9 2v6M15 2v6M6 8h12v3a6 6 0 0 1-12 0z"/><path d="M12 17v5"/>',
+};
+
+const SIZED = new Set(['play','pause','next','prev']);
+
+/** Возвращает строку SVG-разметки иконки. */
+export function icon(name, cls = '') {
+  const d = P[name];
+  if (!d) return `<svg viewBox="0 0 24 24" class="${cls}"></svg>`;
+  const fill = SIZED.has(name) ? 'none' : 'none';
+  return `<svg viewBox="0 0 24 24" fill="${fill}" stroke="currentColor" stroke-width="1.9" `
+       + `stroke-linecap="round" stroke-linejoin="round" class="${cls}" aria-hidden="true">${d}</svg>`;
+}
+
+/** Есть ли такая иконка. */
+export const hasIcon = (n) => !!P[n];
+export default icon;
