@@ -383,11 +383,6 @@ MIT — see `assets/LICENSE.txt`.
 Built with zero dependencies. Everything you see is HTML, CSS, and JavaScript.
 ```
 
----
-
-# README.ru.md
-
-```markdown
 # Browsec OS / NovaOS
 
 > Полноценная операционная система, работающая целиком в браузере — или в Electron.
@@ -401,7 +396,7 @@ Built with zero dependencies. Everything you see is HTML, CSS, and JavaScript.
 
 ---
 
-## Содержание
+Содержание
 
 - [Возможности](#возможности)
 - [Быстрый старт](#быстрый-старт)
