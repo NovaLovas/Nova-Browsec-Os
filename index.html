@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>Browsec OS</title>
+<link rel="stylesheet" href="css/core.css">
+<link rel="stylesheet" href="css/shell.css">
+<link rel="stylesheet" href="css/apps.css">
+</head>
+<body>
+
+<!-- Экран загрузки -->
+<div id="boot">
+  <div id="boot-logo"><span class="mark"></span><span>Browsec<b>OS</b></span></div>
+  <div id="boot-bar"><i></i></div>
+  <div id="boot-status">инициализация</div>
+  <div id="boot-err" class="hidden"></div>
+</div>
+
+<!-- Экран блокировки -->
+<div id="lock" class="hidden">
+  <div class="lock-clock">
+    <div class="time">--:--</div>
+    <div class="date"></div>
+  </div>
+  <div class="users"></div>
+  <form class="pwd hidden" autocomplete="off">
+    <input type="password" placeholder="Пароль" aria-label="Пароль">
+    <button type="submit" aria-label="Войти">→</button>
+    <div class="pwd-hint"></div>
+  </form>
+  <button class="lock-back hidden">Другой пользователь</button>
+</div>
+
+<!-- Рабочий стол -->
+<div id="desktop" class="hidden">
+  <div id="wallpaper"></div>
+  <div id="desktop-icons"></div>
+  <div id="windows-layer"></div>
+  <div id="snap-preview"></div>
+
+  <div id="taskbar">
+    <button class="tb-btn" id="tb-start" title="Пуск (Win)" aria-label="Пуск"></button>
+    <button class="tb-btn" id="tb-search" title="Поиск (Ctrl+Space)" aria-label="Поиск"></button>
+    <div id="tb-tasks"></div>
+    <div id="tb-tray">
+      <button class="tb-tray-btn" id="tb-net" title="Сеть"></button>
+      <button class="tb-tray-btn" id="tb-vol" title="Звук"></button>
+      <button class="tb-tray-btn" id="tb-bell" title="Уведомления"></button>
+      <button class="tb-clock" id="tb-clock"><span class="t">--:--</span><span class="d"></span></button>
+    </div>
+  </div>
+
+  <div id="start-menu" class="pop hidden"></div>
+  <div id="quick-settings" class="pop hidden"></div>
+  <div id="notif-center" class="pop hidden"></div>
+  <div id="spotlight" class="hidden"></div>
+  <div id="toasts"></div>
+  <div id="ctx-menu" class="hidden"></div>
+</div>
+
+<noscript style="position:fixed;inset:0;display:grid;place-items:center;background:#08090c;color:#eee;font:14px system-ui">
+  Browsec OS требует включённый JavaScript.
+</noscript>
+
+<script type="module" src="js/os.js"></script>
+</body>
+</html>
