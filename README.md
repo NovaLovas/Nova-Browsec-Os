@@ -381,4 +381,3 @@ This is a browser, not an OS. Some things are physically impossible:
 MIT — see `assets/LICENSE.txt`.
 
 Built with zero dependencies. Everything you see is HTML, CSS, and JavaScript.
-```
