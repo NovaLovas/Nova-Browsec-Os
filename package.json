@@ -1,0 +1,168 @@
+{
+  "name": "nova-os",
+  "productName": "NovaOS",
+  "version": "1.0.0",
+  "description": "NovaOS — операционная система в браузере / Electron",
+  "author": {
+    "name": "NovaOS",
+    "email": "hello@novaos.local"
+  },
+  "license": "MIT",
+  "main": "electron/main.js",
+  "homepage": "./",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev",
+    "build": "electron-builder --publish never",
+    "build:win": "electron-builder --win --publish never",
+    "build:mac": "electron-builder --mac --publish never",
+    "build:linux": "electron-builder --linux --publish never",
+    "build:all": "electron-builder -mwl --publish never",
+    "icons": "node scripts/make-icons.js",
+    "clean": "node scripts/clean.js",
+    "postinstall": "electron-builder install-app-deps",
+    "serve": "node scripts/serve.js"
+  },
+  "devDependencies": {
+    "electron": "^30.5.1",
+    "electron-builder": "^24.13.3",
+    "png-to-ico": "^2.1.8",
+    "sharp": "^0.33.5"
+  },
+  "build": {
+    "appId": "app.novaos.desktop",
+    "productName": "NovaOS",
+    "copyright": "Copyright © 2025 NovaOS",
+    "asar": true,
+    "compression": "maximum",
+    "files": [
+      "index.html",
+      "css/**/*",
+      "js/**/*",
+      "electron/**/*",
+      "assets/**/*",
+      "package.json",
+      "!**/*.map",
+      "!**/node_modules/**/*",
+      "!scripts/**/*",
+      "!dist/**/*",
+      "!worker/**/*"
+    ],
+    "directories": {
+      "output": "dist",
+      "buildResources": "assets"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "assets/icon.ico",
+      "artifactName": "NovaOS-${version}-${arch}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "allowElevation": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "NovaOS",
+      "installerIcon": "assets/icon.ico",
+      "uninstallerIcon": "assets/icon.ico",
+      "installerHeaderIcon": "assets/icon.ico",
+      "deleteAppDataOnUninstall": false,
+      "runAfterFinish": true,
+      "license": "assets/LICENSE.txt"
+    },
+    "portable": {
+      "artifactName": "NovaOS-Portable-${version}.${ext}"
+    },
+    "mac": {
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        }
+      ],
+      "icon": "assets/icon.icns",
+      "category": "public.app-category.productivity",
+      "artifactName": "NovaOS-${version}-${arch}.${ext}",
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false
+    },
+    "dmg": {
+      "title": "NovaOS ${version}",
+      "backgroundColor": "#07080b",
+      "window": {
+        "width": 540,
+        "height": 380
+      },
+      "contents": [
+        {
+          "x": 130,
+          "y": 220,
+          "type": "file"
+        },
+        {
+          "x": 410,
+          "y": 220,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "linux": {
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "deb",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "assets/icons",
+      "category": "Utility",
+      "synopsis": "Операционная система в браузере",
+      "description": "NovaOS — изолированная ОС в окне Electron",
+      "artifactName": "NovaOS-${version}-${arch}.${ext}"
+    },
+    "deb": {
+      "depends": [
+        "libgtk-3-0",
+        "libnotify4",
+        "libnss3",
+        "libxss1",
+        "libxtst6",
+        "xdg-utils",
+        "libatspi2.0-0",
+        "libdrm2",
+        "libgbm1"
+      ]
+    },
+    "publish": null
+  },
+  "allowScripts": {
+    "sharp@0.33.5": true,
+    "electron@30.5.1": true
+  }
+}
